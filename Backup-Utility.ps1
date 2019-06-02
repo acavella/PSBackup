@@ -1,12 +1,18 @@
 <#
 	.SYNOPSIS
-		 Backup files to specified destination.
+		 Backs up files and directories to a specified location.
 
 	.DESCRIPTION
-		 Use function Get-WUHistory to get list of installed updates on current machine. It works similar like Get-Hotfix.
+		 Use function Backup-Utility to backup source directories/files to a destination.
 	       
-	.PARAMETER ComputerName	
-		Specify the name of the computer to the remote connection.
+	.PARAMETER Sources	
+		Specify the source directory or file to be backed up (Can be multiple).
+
+	.PARAMETER Destination	
+		Specify the destination folder to save archived files/folders.
+
+	.PARAMETER Compress	
+		Archived files/folders will be saved in a Zip compressed archive.
  	       
 	.PARAMETER Debuger	
 		Debug mode.
@@ -17,15 +23,18 @@
 		PS C:\> "G1","G2" | Get-WUHistory
 
 	.NOTES
-		Author: Michal Gajda
-		Blog  : http://commandlinegeeks.com/
+		Author: Tony Cavella
+		Blog  : https://revokehq.github.io
 		
 	.LINK
-		http://gallery.technet.microsoft.com/scriptcenter/2d191bcd-3308-4edd-9de2-88dff796b0bc
+		https://github.com/revokehq/psbackup
 
 	.LINK
-		Get-WUList	
+		Backup-Utility	
 #>
+
+#Requires -Version 4.0
+
 Function Backup-Utility
 {
 	Param
@@ -39,7 +48,7 @@ Function Backup-Utility
 		[String]$Destination,
 		[parameter(Mandatory=$false)]
 		[Alias('Zip')]
-        [Switch]$Compress
+        [Switch]$Compress=$false
 	)
 
 	Begin
