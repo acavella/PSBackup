@@ -1,4 +1,4 @@
-#Function Backup-Files
+#Function Backup-Utility
 #{
 	<#
 	.SYNOPSIS
@@ -83,7 +83,7 @@
 		[parameter(Mandatory=$false)]
     	[switch]$Debuger=$false,
 		[parameter(Mandatory=$true)]
-		[String]$Source,
+		[String[]]$Sources,
 		[parameter(Mandatory=$true)]
 		[String]$Destination,
 		[parameter(Mandatory=$false)]
@@ -110,11 +110,6 @@
 		Write-Debug "Setting script variables."
 		[string]$Filename = "backup_$(get-date -f yyyy-MM-dd)"
 
-		Write-Debug "Source = $Source"
-		Write-Debug	"Destination = $Destination"
-		Write-Debug "Compress = $Compress"
-		Write-Debug "Filename = $Filename"
-
 		Write-Debug "Checking for valid desination."
 		$DestinationCheck = $(Test-Path -Path $Destination)
 
@@ -129,6 +124,15 @@
     Process
     {
 		Write-Verbose "Backup-Files ver. 0.1.0"
+
+		Write-Verbose "Creating backup directory."
+		New-Item -ItemType "directory" -Path "$Destination\$Filename"
+
+		Write-Verbose "Copying files to backup directory."
+		ForEach ($Source in $Sources)
+		{
+			Copy-Item -Path "$Source" -Destination "$Destination\$Filename" -Recurse
+		}
     }
 
     End
