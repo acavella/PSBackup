@@ -118,13 +118,10 @@
 			Write-Warning "Destination does not exist, creating directory."
 			New-Item -ItemType "directory" -Path "$Destination"
 		} #End If !$DesinationCheck
-
     }
 
     Process
     {
-		Write-Verbose "Backup-Files ver. 0.1.0"
-
 		Write-Verbose "Creating backup directory."
 		New-Item -ItemType "directory" -Path "$Destination\$Filename"
 
@@ -133,10 +130,16 @@
 		{
 			Copy-Item -Path "$Source" -Destination "$Destination\$Filename" -Recurse
 		}
+		
+		If ($Compress = $True) 
+		{
+			$ZipFilename = "$Destination\$Filename.zip"
+			Write-Verbose "Adding files to Zip archive."
+			Compress-Archive -Path "$Destination\$Filename" -DestinationPath "$ZipFilename"
+			Write-Verbose "Cleaning up extra files."
+			Remove-Item -Path "$Destination\$Filename" -Recurse
+		}
     }
 
-    End
-    {
-
-    }
+    End{}
 #}
