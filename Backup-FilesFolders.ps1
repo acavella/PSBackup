@@ -3,7 +3,7 @@
 		 Backs up files and directories to a specified location.
 
 	.DESCRIPTION
-		 Use function Backup-Utility to backup source directories/files to a destination.
+		 Use function Backup-FilesFolders to backup source directories/files to a destination.
 	       
 	.PARAMETER Sources	
 		Specify the source directory or file to be backed up (Can be multiple).

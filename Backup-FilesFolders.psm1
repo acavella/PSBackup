@@ -12,25 +12,22 @@
     #RootModule = ''
     
     # Version number of this module.
-    ModuleVersion = '1.0'
+    ModuleVersion = '1.0.0'
     
     # ID used to uniquely identify this module
-    GUID = 'd0a9150d-b6a4-4b17-a325-e3a24fed0aa9'
+    GUID = 'c6eeb39d-d217-44c7-8136-3598a9774669'
     
     # Author of this module
-    Author = 'User01'
-    
-    # Company or vendor of this module
-    CompanyName = 'Unknown'
+    Author = 'Tony Cavella'
     
     # Copyright statement for this module
-    Copyright = '(c) 2012 User01. All rights reserved.'
+    Copyright = '(c) 2019 Tony Cavella. All rights reserved.'
     
     # Description of the functionality provided by this module
-    # Description = ''
+    Description = 'Use function Backup-FilesFolders to backup source directories/files to a destination.'
     
     # Minimum version of the Windows PowerShell engine required by this module
-    # PowerShellVersion = ''
+    PowerShellVersion = '4'
     
     # Name of the Windows PowerShell host required by this module
     # PowerShellHostName = ''
