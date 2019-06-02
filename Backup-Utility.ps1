@@ -18,9 +18,9 @@
 		Debug mode.
 		
 	.EXAMPLE
-		Get updates histry list for sets of remote computers.
+		Backup single directory and save as compress archive.
 		
-		PS C:\> "G1","G2" | Get-WUHistory
+		PS C:\> Backup-FilesFolders -Sources "C:\TestDirectory" -Destination "D:\BackupDirectory" -Compress
 
 	.NOTES
 		Author: Tony Cavella
@@ -35,7 +35,7 @@
 
 #Requires -Version 4.0
 
-Function Backup-Utility
+Function Backup-FilesFolders
 {
 	Param
 	(
