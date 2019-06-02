@@ -98,6 +98,7 @@
 			$DebugPreference = "Continue"
 		} #End If $PSBoundParameters['Debuger'] 
 
+		Write-Debug "Checking for administrative privileges."
 		$User = [Security.Principal.WindowsIdentity]::GetCurrent()
 		$Role = (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
 
@@ -106,16 +107,28 @@
 			Write-Warning "To perform some operations you must run an elevated Windows PowerShell console."	
 		} #End If !$Role
 
+		Write-Debug "Setting script variables."
+		[string]$Filename = "backup_$(get-date -f yyyy-MM-dd)"
+
 		Write-Debug "Source = $Source"
 		Write-Debug	"Destination = $Destination"
 		Write-Debug "Compress = $Compress"
+		Write-Debug "Filename = $Filename"
 
-		Write-Verbose "Backup-Files ver. 0.1.0"
+		Write-Debug "Checking for valid desination."
+		$DestinationCheck = $(Test-Path -Path $Destination)
+
+		if (!$DestinationCheck)
+		{
+			Write-Warning "Destination does not exist, creating directory."
+			New-Item -ItemType "directory" -Path "$Destination"
+		} #End If !$DesinationCheck
+
     }
 
     Process
     {
-
+		Write-Verbose "Backup-Files ver. 0.1.0"
     }
 
     End
