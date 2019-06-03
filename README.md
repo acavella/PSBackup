@@ -1,21 +1,22 @@
 # PSBackup
 
 ## Overview
+A fully functional Powershell module designed to perform windows filesystem backups.
 
-A Powershell module designed to perform full and incremental backups.
-
-- Ability to perform both full and incremental backups.
+- Perform full backups from multiple sources.
 - Backup a variety of sources: files, directories, SQL, and more coming soon...
-- Perform manual backups via Powershell CLI.
-- Schedule automated backups with set parameters.
+- On-demand backups via Powershell CLI or scheduled using Windows Task Scheduler.
+- Save files as Raw backup or compressed Zip archives.
 
 ## Requirements
-- Powershell 3+
-- ...
+
+- Powershell 4+
 
 ## Installation
 
-Installation instructions here.
+1. Create new folder named: `backup-filesfolders`
+2. Copy `backup-filesfolders.psm1` and `backup-filesfolders.psd1` to `backup-filesfolders` folder.
+3. Copy `backup-filesfolders` to `C:\Program Files\WindowsPowerShell\Modules\`
 
 ## Usage
 
