@@ -16,7 +16,7 @@ A fully functional Powershell module designed to perform windows filesystem back
 
 1. Download the latest [release](https://github.com/revokeHQ/PSBackup/releases) from GitHub.
 2. Extract the release archive (zip or tar.gz).
-3. Copy the `PSBackup` to `C:\Program Files\WindowsPowerShell\Modules\`
+3. Copy the `PSBackup` folder to `C:\Program Files\WindowsPowerShell\Modules\`
 4. Verify the installation by running the following command `Get-Module -Name "PSBackup"`
 5. You should see the latest released version of PSBackup listed.
 
