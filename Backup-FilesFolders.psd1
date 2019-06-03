@@ -22,7 +22,7 @@
     PowerShellVersion = '4'
     
     # Functions to export from this module
-    FunctionsToExport = '*'
+    FunctionsToExport = 'Backup-FilesFolders'
     
     # Cmdlets to export from this module
     CmdletsToExport = '*'
