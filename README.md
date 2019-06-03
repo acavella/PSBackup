@@ -10,13 +10,15 @@ A fully functional Powershell module designed to perform windows filesystem back
 
 ## Requirements
 
-- Powershell 4+
+- Powershell 4.0+
 
 ## Installation
 
-1. Create new folder named: `backup-filesfolders`
-2. Copy `backup-filesfolders.psm1` and `backup-filesfolders.psd1` to `backup-filesfolders` folder.
-3. Copy `backup-filesfolders` to `C:\Program Files\WindowsPowerShell\Modules\`
+1. Download the latest [release](https://github.com/revokeHQ/PSBackup/releases) from GitHub.
+2. Extract the release Tar.Gz or Zip archive.
+3. Copy the `PSBackup` to `C:\Program Files\WindowsPowerShell\Modules\`
+4. Verify the installation by running the following command `Get-Module -Name "PSBackup"`
+5. You should see the latest released version of PSBackup listed.
 
 ## Usage
 
