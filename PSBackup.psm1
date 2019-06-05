@@ -76,7 +76,7 @@ Function Backup-FilesFolders
 			Write-Warning "Destination does not exist, creating directory."
 			New-Item -ItemType "directory" -Path "$Destination"
 		} #End If !$DesinationCheck
-    }
+  }
 
     Process
     {
