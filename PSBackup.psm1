@@ -33,8 +33,6 @@
 		Backup-Utility	
 #>
 
-#Requires -Version 4.0
-
 Function Backup-FilesFolders
 {
 	Param
