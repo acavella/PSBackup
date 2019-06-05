@@ -1,4 +1,8 @@
 # PSBackup
+<a href="https://github.com/revokeHQ/PSBackup/blob/develop/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/revokehq/psbackup.svg"></a>
+<img alt="GitHub tag (latest SemVer)" src="https://img.shields.io/github/tag/revokehq/psbackup.svg?label=version">
+<img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/revokehq/psbackup.svg">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/revokehq/psbackup.svg">
 
 ## Overview
 A fully functional Powershell module designed to perform windows filesystem backups.
