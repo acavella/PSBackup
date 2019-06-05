@@ -60,7 +60,7 @@ Function Backup-FilesFolders
 		$User = [Security.Principal.WindowsIdentity]::GetCurrent()
 		$Role = (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
 
-		if(!$Role)
+		If(!$Role)
 		{
 			Write-Warning "To perform some operations you must run an elevated Windows PowerShell console."	
 		} #End If !$Role
@@ -71,7 +71,7 @@ Function Backup-FilesFolders
 		Write-Debug "Checking for valid desination."
 		$DestinationCheck = $(Test-Path -Path $Destination)
 
-		if (!$DestinationCheck)
+		If (!$DestinationCheck)
 		{
 			Write-Warning "Destination does not exist, creating directory."
 			New-Item -ItemType "directory" -Path "$Destination"
