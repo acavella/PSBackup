@@ -78,8 +78,8 @@ Function Backup-FilesFolders
 		} #End If !$DesinationCheck
   }
 
-    Process
-    {
+  Process
+  {
 		Write-Verbose "Creating backup directory."
 		New-Item -ItemType "directory" -Path "$Destination\$Filename"
 
@@ -97,7 +97,7 @@ Function Backup-FilesFolders
 			Write-Verbose "Cleaning up extra files."
 			Remove-Item -Path "$Destination\$Filename" -Recurse
 		}
-    }
+  }
 
-    End{}
+  End{}
 }
