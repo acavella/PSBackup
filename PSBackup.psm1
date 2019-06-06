@@ -40,13 +40,15 @@ Function Backup-FilesFolders
 		#Mode options
 		[parameter(Mandatory=$false)]
     	[switch]$Debuger=$false,
-		[parameter(Mandatory=$true)]
+		[parameter(Mandatory=$false)]
 		[String[]]$Sources,
 		[parameter(Mandatory=$true)]
 		[String]$Destination,
 		[parameter(Mandatory=$false)]
 		[Alias('Zip')]
-        [Switch]$Compress=$false
+			[Switch]$Compress=$false,
+		[parameter(Mandatory=$false)]
+		[String]$SourceFile
 	)
 
 	Begin
@@ -71,11 +73,16 @@ Function Backup-FilesFolders
 		Write-Debug "Checking for valid desination."
 		$DestinationCheck = $(Test-Path -Path $Destination)
 
-		If (!$DestinationCheck)
+		If(!$DestinationCheck)
 		{
 			Write-Warning "Destination does not exist, creating directory."
 			New-Item -ItemType "directory" -Path "$Destination"
 		} #End If !$DesinationCheck
+
+		If($PSBoundParameters.ContainsKey['SourceFile'])
+		{
+			[string[]]$Sources = $(Get-Conent -Path "$SourceFile")
+		}
   }
 
   Process
