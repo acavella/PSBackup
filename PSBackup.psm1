@@ -33,8 +33,6 @@
 		Backup-Utility	
 #>
 
-#Requires -Version 4.0
-
 Function Backup-FilesFolders
 {
 	Param
@@ -42,13 +40,15 @@ Function Backup-FilesFolders
 		#Mode options
 		[parameter(Mandatory=$false)]
     	[switch]$Debuger=$false,
-		[parameter(Mandatory=$true)]
+		[parameter(Mandatory=$false)]
 		[String[]]$Sources,
 		[parameter(Mandatory=$true)]
 		[String]$Destination,
 		[parameter(Mandatory=$false)]
 		[Alias('Zip')]
-        [Switch]$Compress=$false
+			[Switch]$Compress=$false,
+		[parameter(Mandatory=$false)]
+		[String]$SourceFile
 	)
 
 	Begin
@@ -62,7 +62,7 @@ Function Backup-FilesFolders
 		$User = [Security.Principal.WindowsIdentity]::GetCurrent()
 		$Role = (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
 
-		if(!$Role)
+		If(!$Role)
 		{
 			Write-Warning "To perform some operations you must run an elevated Windows PowerShell console."	
 		} #End If !$Role
@@ -73,15 +73,20 @@ Function Backup-FilesFolders
 		Write-Debug "Checking for valid desination."
 		$DestinationCheck = $(Test-Path -Path $Destination)
 
-		if (!$DestinationCheck)
+		If(!$DestinationCheck)
 		{
 			Write-Warning "Destination does not exist, creating directory."
 			New-Item -ItemType "directory" -Path "$Destination"
 		} #End If !$DesinationCheck
-    }
 
-    Process
-    {
+		If($PSBoundParameters.ContainsKey['SourceFile'])
+		{
+			[string[]]$Sources = $(Get-Conent -Path "$SourceFile")
+		}
+  }
+
+  Process
+  {
 		Write-Verbose "Creating backup directory."
 		New-Item -ItemType "directory" -Path "$Destination\$Filename"
 
@@ -99,7 +104,7 @@ Function Backup-FilesFolders
 			Write-Verbose "Cleaning up extra files."
 			Remove-Item -Path "$Destination\$Filename" -Recurse
 		}
-    }
+  }
 
-    End{}
+  End{}
 }
