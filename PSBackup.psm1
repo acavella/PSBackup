@@ -81,7 +81,7 @@ Function Backup-FilesFolders
 
 		If($PSBoundParameters.ContainsKey['SourceFile'])
 		{
-			[string[]]$Sources = $(Get-Conent -Path "$SourceFile")
+			[string[]]$Sources = $(Get-Content -Path "$SourceFile")
 		}
   }
 
