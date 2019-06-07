@@ -46,7 +46,7 @@ Function Backup-FilesFolders
 		[String]$Destination,
 		[parameter(Mandatory=$false)]
 		[Alias('Zip')]
-			[Switch]$Compress=$false,
+			[Switch]$Compress,
 		[parameter(Mandatory=$false)]
 		[String]$SourceFile
 	)
@@ -96,7 +96,7 @@ Function Backup-FilesFolders
 			Copy-Item -Path "$Source" -Destination "$Destination\$Filename" -Recurse
 		}
 		
-		If ($Compress = $True) 
+		If ($Compress) 
 		{
 			$ZipFilename = "$Destination\$Filename.zip"
 			Write-Verbose "Adding files to Zip archive."
