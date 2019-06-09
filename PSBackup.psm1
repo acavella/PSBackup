@@ -35,6 +35,7 @@
 
 Function Backup-FilesFolders
 {
+	[CmdletBinding()]
 	Param
 	(
 		#Mode options
