@@ -21,6 +21,11 @@
 		Backup single directory and save as compress archive.
 		
 		PS C:\> Backup-FilesFolders -Sources "C:\TestDirectory" -Destination "D:\BackupDirectory" -Compress
+	
+	.EXAMPLE
+		Backup multiple directories listed in text file and compress archive.
+		
+		PS C:\> Backup-FilesFolders -SourceFile "C:\sourcelist.txt" -Destination "D:\BackupDirectory" -Compress
 
 	.NOTES
 		Author: Tony Cavella
