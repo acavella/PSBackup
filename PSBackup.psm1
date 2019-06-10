@@ -39,16 +39,16 @@ Function Backup-FilesFolders
 	Param
 	(
 		#Mode options
-		[parameter(Mandatory=$false)]
-    	[switch]$Debuger=$false,
-		[parameter(Mandatory=$false)]
+		[parameter()]
+    	[switch]$Debuger,
+		[parameter()]
 		[String[]]$Sources,
-		[parameter(Mandatory=$true)]
+		[parameter(Mandatory)]
 		[String]$Destination,
-		[parameter(Mandatory=$false)]
+		[parameter()]
 		[Alias('Zip')]
 			[Switch]$Compress,
-		[parameter(Mandatory=$false)]
+		[parameter()]
 		[String]$SourceFile
 	)
 
