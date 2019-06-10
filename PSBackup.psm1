@@ -8,6 +8,9 @@
 	.PARAMETER Sources	
 		Specify the source directory or file to be backed up (Can be multiple).
 
+	.PARAMETER SourceFile
+		Specify a text file containing a list of directories to be backed up. 
+
 	.PARAMETER Destination	
 		Specify the destination folder to save archived files/folders.
 
