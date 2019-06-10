@@ -69,7 +69,7 @@ Function Backup-FilesFolders
 		} #End If !$Role
 
 		Write-Debug "Setting script variables."
-		[string]$Filename = "backup_$(get-date -f yyyy-MM-dd)"
+		[string]$Filename = "backup_$(Get-Date -f yyyy-MM-dd)"
 
 		Write-Debug "Checking for valid desination."
 		$DestinationCheck = $(Test-Path -Path $Destination)
